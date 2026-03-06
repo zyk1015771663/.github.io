@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易图片加载网站</title>
+    <style>
+        /* 页面样式，简单美观 */
+        正文 {
+            最大宽度: 1000像素;
+            边距: 0 自动;
+            内边距: 20像素;
+            font-family: Arial, sans-serif;
+            
+        }
+        .容器 {
+            背景: 白色;
+            内边距: 30像素;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #imageInput {
+            边距: 20像素 0;
+            内边距: 10像素;
+            边框: 1像素 实线#ddd
+            border-radius: 5px;
+        }
+        #预览 {
+            上边距: 20像素;
+            最大宽度: 100%;
+            边框: 1像素 虚线#ccc;
+            内边距: 20像素;
+            文本对齐: 居中;
+        }
+        #预览 图片 {
+            最大宽度: 100%;
+            最大高度: 500像素;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        按钮 {
+            background: #007bff;
+            : 白色;
+            边框: 无;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>简易图片加载展示</h1>
+        <!-- 图片上传按钮 -->
+        <input type="file" id="imageInput" accept="image/*">
+        <button onclick="loadImage()">加载图片</button>
+        <!-- 图片预览区域 -->
+        <div id="preview">
+            请选择图片并点击加载
+        </div>
+    </div>
+
+    <script>
+        // 加载图片的核心函数
+        function loadImage() {
+            const input = document.getElementById('imageInput');
+            const preview = document.getElementById('preview');
+            
+            // 检查是否选择了图片
+            if (!input.files || !input.files[0]) {
+                preview.innerHTML = "❌ 请先选择一张图片！";
+                return;
+            }
+
+            // 读取并展示图片
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+</body>
+</html>
